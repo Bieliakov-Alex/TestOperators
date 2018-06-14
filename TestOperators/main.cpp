@@ -10,21 +10,23 @@ public:
 	struct B
 	{
 		int a;
-		bool operator<(const B& op);
+		bool operator<(const B& op)const;
 	};
 };
 
 int main()
 {
+	A::B op1, op2;
+	op1.a = 2;
+	op2.a = 3;
+	cout << (op1 < op2 ? "Yes" : "No");
 	set<A::B> a;
-	A::B c;
-	a.insert(c);
-	set<int> b;
+	a.insert(op1);
 	_getch();
 	return 0;
 }
 
-bool A::B::operator<(const B & op)
+bool A::B::operator<(const B & op)const
 {
 	return a < op.a;
 }
